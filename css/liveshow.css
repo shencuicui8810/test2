@@ -1,0 +1,145 @@
+/*主体内容，定宽*/
+body{background: #282828;}
+.main{width: 1078px;border: 1px solid #000;margin: 5px auto;}
+/*头部内容开始*/
+.header{width: 1072px;height: 40px;border: 1px solid #000;margin: 0 auto;background: url(../images/head_bg.png) repeat-x 0;}
+.header .logo{width: 104px;height: 32px;background: url(../images/logo.png) no-repeat 0;text-indent: -999em;float: left;margin: 4px 0 0 8px;}
+.header .nav{float: left;margin:14px 0 0 40px;}
+.nav li{float: left;}
+.nav li a{color: #a6a6a7;font-size: 16px;margin-right: 38px;}
+.nav li a:hover{color: #fff;}
+.header .view{float: right;width: 96px;height:24px;border-left: 1px solid #2a2b2e;margin-top: 10px;}
+.view a{float: left;margin-top: 4px;margin-left: 20px;}
+.view .view_spe{margin-left: 10px;} 
+/*头部内容结束*/
+
+/*正文内容开始*/
+/*正文左边内容(siderbar)开始*/
+.concent .siderbar{float: left;width: 248px;margin-left: 2px;}
+.siderbar .sd_search{width: 247px;border: 1px solid #242424;background: #353533;padding-top: 3px;}
+.sd_search .sd_sear_t{width:244px;height: 32px;background: #191917;margin-left: 1px;position:relative;}
+.sd_sear_t a{position: absolute;width: 17px;height:16px;top: 8px;right: 8px;background: url(../images/4.png) no-repeat 0;}
+.sd_search .sd_sear_nav{border: 1px solid #000;margin-top: 4px;}
+.sd_sear_nav li{float: left;padding: 2px 7px 4px;border-right: 1px solid #000; background: url(../images/5.png) repeat-x 0;}
+.sd_sear_nav .sd_sear_nav_spe{border-right:none 0;}
+.sd_sear_nav li a{color: #ccc;}
+.sd_sear_nav li .sd_sear_nav_a1{color: #fbb901;}
+.sd_sear_nav li a:hover{color: #f84540;}
+.sd_sear_nav li .sd_sear_nav_a1:hover{color: #fbb901;}
+.sd_search .sd_sear_user{border: 1px solid #000;padding: 8px 0 10px;background: #272726;}
+.sd_sear_user img{float: left;margin: 0 8px;}
+.sd_sear_user .user_introduce{float: left;}
+.user_introduce .user_name{width: 100px;color: #ff5c19;background: url(../images/user_doudou.png) no-repeat 74px 0;margin-bottom: 6px;}
+.user_introduce .vip{margin-bottom: 4px;}
+.user_introduce .vip li{float: left;margin-right: 6px;padding-left: 18px;height: 17px;line-height: 17px;color: #8c8c8c;}
+.user_introduce .vip .vip_li1{width: 22px;background: url(../images/level.png) no-repeat 0 0;padding-left: 0;}
+.user_introduce .vip .vip_li2{background: url(../images/level_sun.png) no-repeat 0 0;}
+.user_introduce .vip .vip_li3{background: url(../images/level_yue.png) no-repeat 0 0;}
+.user_introduce .vip .vip_li4{background: url(../images/level_xing.png) no-repeat 0 0;}
+.user_introduce .my{color: #8c8c8c;}
+.user_introduce .my span{color: #ff5c19;}
+.user_introduce .my a{color: #ccc;}
+.user_introduce .my a:hover{color: #f84540;}
+
+/*选项卡内容开始*/
+.siderbar .sd_list{margin-top: 2px;}
+.sd_list .sd_list_cont{float: left;width: 230px;height: 728px;overflow: hidden;}
+.sd_list_cont .sd_list_introduce .sd_list_intro_game{width: 200px;height: 24px;background: url(../images/icons01.png) no-repeat 6px 2px #303030;color: #fcba04;padding-left: 30px;font-size: 14px;position: relative;line-height: 24px;border-bottom: 2px solid #000;}
+.sd_list_introduce .sd_list_intro_game a{width: 8px;height: 7px;position: absolute;top: 8px;right: 6px;background: url(../images/6.png) no-repeat 0;}
+.sd_list_introduce .sd_list_intro_live li{height: 38px;background: #312f30;margin-bottom: 1px;}
+.sd_list_introduce .sd_list_intro_live li:hover{background: url(../images/playBtn.gif) no-repeat 180px center #161616;}
+.sd_list_intro_live li a{display: block;line-height: 38px;color: #cbcbcb;font-size: 14px;position: relative;text-align: center;}
+.sd_list_intro_live li a b{position: absolute;top: 7px;left: 34px;width: 30px;height: 28px;_background: url(../images/01.png) no-repeat 0;}
+/*滚动条*/
+.scroll{float: right;width:16px;}
+.scroll .scr_up{width: 14px;height: 11px;background: url(../images/rollBarUp_bg.png) no-repeat 0 0;border: 1px solid #000;}
+.scroll .scr_bg{border: 1px solid #000;background: #000;height: 700px;position: relative;}
+.scr_bg .scr_bar{height:450px;background: #403e3f;position: absolute;top: 0;left: 0;width: 14px;}
+.scroll .scr_down{width: 14px;height: 11px;background: url(../images/rollBarDown_bg.png) no-repeat 0 0;border: 1px solid #000;}
+/*滚动条内容结束*/
+/*选项卡内容结束*/
+/*正文左边内容(siderbar)结束*/
+
+/*正文右边内容(con_main)开始*/
+.concent .con_main{float: left;width: 824px;}
+.con_main .con_main_contain{float: left;width: 805px;height: 862px;overflow: hidden;}
+/*con_main_nav*/
+.con_main_contain .con_main_nav{height: 40px;background: #383735;}
+.con_main_nav .con_main_nav_l{float: left;width: 604px;}
+.con_main_nav .con_main_nav_l li{float: left;margin-left: 22px;line-height: 40px;}
+.con_main_nav_l li a{color: #9b9b99;font-size: 14px;font-weight: bold;}
+.con_main_nav_l li .con_main_nav_l_a1{display: block;width: 20px;height: 19px;background: url(../images/back_btn.png) no-repeat 0;padding-top: 21px;}
+.con_main_nav_l li .con_main_nav_l_a2{display: block;width: 20px;height: 19px;background: url(../images/refresh.png) no-repeat 0;padding-top: 20px;}
+.con_main_nav_l li .con_main_nav_l_a3{color: #f84540;padding-left: 12px;background: url(../images/nav_dot.png) no-repeat 0 6px;}
+
+.con_main_nav .con_main_nav_r{float: right;background: url(../images/12.png) no-repeat 0;width: 168px;height: 24px;margin: 6px 7px 0 0;cursor:pointer;}
+.con_main_nav_r input{width: 148px;height: 22px;}
+
+/*con_main_banner*/
+.con_main_contain .con_main_banner{background: #1b1a1a;width: 805px;}
+.con_main_banner .con_main_banner_big{position: relative;margin-left: 5px;}
+.con_main_banner_big .big_bg{width: 800px;height: 36px;background: #000;opacity: 0.4;filter:alpha(opacity=40);position: absolute;bottom: 0;left: 0;}
+.con_main_banner_big .big_con{color: #fff;position: absolute;bottom: 14px;left: 20px;font-size: 14px;}
+.con_main_banner_big .big_con:hover{color: #f8453c;}
+
+.con_main_banner .con_main_banner_small{width: 800px;height: 50px;background: #000;margin-left: 5px;position: relative;}
+.con_main_banner_small .con_main_banner_small_img li{float: left;margin: 4px 2px;}
+.con_main_banner_small_img li a img{width: 76px;}
+.con_main_banner_small .con_main_banner_small_pointer{background: url(../images/pic-hover.png) no-repeat 0;width: 76px;height: 51px;position: absolute;top: -3px;left: 2px;display: none;}
+
+/*电影*/
+.movie{width: 100%;}
+.movie .tittle{height: 42px;}
+.tittle .tittle_l{float: left;color: #ccc;font-size: 16px;line-height: 40px;margin-left: 6px;}
+.tittle .tittle_r{float: right;color: #637f7f;}
+.tittle_r li{float: left;}
+.tittle_r li a{color: #ccc;line-height: 42px;}
+.tittle_r li a:hover{color: #f84540;}
+.movie .mov_con{margin-left: 5px;margin-bottom: 20px;}
+.mov_con li{float: left;margin-right: 40px;}
+.mov_con .mov_con_li_spe{margin-right:0;}
+.mov_con li a{display: block;width: 126px;height: 174px;position: relative;}
+.mov_con li a b{position: absolute;bottom: 0;left: 0;width: 15px;height: 13px;background: url(../images/squre.png) no-repeat 0;}
+.mov_con li a span{position: absolute;top: 50%;left: 50%;width: 43px;height: 43px;background: url(../images/video-png24.png) no-repeat 0;margin-left: -21px;margin-top: -21px;display: none;}
+.mov_con li a:hover span{display: block;}
+.mov_con li .mov_con_p1{color: #fff;margin: 7px 0 11px;}
+.mov_con li .mov_con_p2{color: #8c8c8c;}
+.movie .mov_bot{width: 100%;height: 3px;background: url(../images/bg-5.png) no-repeat 0;}
+
+/*今日热点*/
+.hot .mov_con li{margin-right: 14px;}
+.hot .mov_con .mov_con_li_spe{margin-right:0;}
+.hot .mov_con li a{width: 147px;height: 84px;}
+.hot .mov_con li a img{width: 147px;height: 84px;}
+
+/*电视剧*/
+.tv .mov_con .mov_con_li_spe{margin-right:0;}
+.tv .mov_con .mov_con_li1{margin-bottom: 18px;}
+.tv .mov_con li a{width: 168px;height: 95px;}
+.tv .mov_con li a img{width: 168px;height: 95px;}
+.tv .mov_con li a i{position: absolute;bottom: 0;right: 0;width: 40px;height: 15px;background: url(../images/mask_png.png) no-repeat 0;padding-top: 3px;padding-left: 60px;color: #ccc;}
+.tv .mov_con li a:hover i{color: #f84540;}
+
+/*广告2*/
+.con_main_contain .ad{display: block;width: 816px;height: 94px;margin-left: 5px;}
+.con_main_contain .ad img{width: 816px;height: 94px;}
+
+/*综艺*/
+.variety .mov_con .mov_con_li_spe{margin-right:0;}
+.variety .mov_con li a{width: 168px;height: 95px;}
+.variety .mov_con li a img{width: 168px;height: 95px;}
+
+/*动漫*/
+.comic .mov_con li a i{padding-left: 40px;width: 60px;}
+
+/*滚动条2*/
+.scroll2{width: 18px;}
+.scroll2 .scr_up{width: 16px;height: 16px;background: url(../images/con_barUp.png) no-repeat 0 0;border: 1px solid #201e1f;}
+.scroll2 .scr_bg{height: 824px;border: 1px solid #201e1f;background: #201e1f;}
+.scroll2 .scr_bg .scr_bar{height: 385px;width: 16px;}
+.scroll2 .scr_down{width: 16px;height: 16px;background: url(../images/con_barDown.png) no-repeat 0 0;border: 1px solid #201e1f;}
+/*正文右边内容(con_main)结束*/
+/*正文内容结束*/
+
+/*footer*/
+.footer{width: 1074px;height: 29px;background: #1e1e1e;margin:0 auto;line-height: 29px;color: #8c8c8c;text-indent: 1em;border:1px solid #000;}

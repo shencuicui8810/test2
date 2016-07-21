@@ -1,0 +1,648 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>liveShow</title>
+	<link rel="stylesheet" href="css/base.css">
+	<link rel="stylesheet" href="css/liveshow.css">
+	<!--<script src="js/index1.js"></script>-->
+	<!--<script src="js/move.js"></script>-->
+	<script src="js/addWheel.js"></script>
+	<script>
+		window.onload=function(){
+			var oScrBar=document.getElementById('scr_bar');
+			var oScrBg=document.getElementById('scr_bg');
+			var oSdList=document.getElementById('sd_list');
+			var oSdListCont=document.getElementById('sd_list_cont');
+			var oSdListIntro=document.getElementById('sd_list_introduce');
+			function setPos(t){
+				if(t<0){
+					t=0;
+				}else if(t>oScrBg.offsetHeight-oScrBar.offsetHeight){
+					t=oScrBg.offsetHeight-oScrBar.offsetHeight;
+				}
+				oScrBar.style.top=t+'px';
+				var scale=t/(oScrBg.offsetHeight-oScrBar.offsetHeight);
+				//alert(oSdListIntro.offsetHeight);
+				//alert(oSdListCont.scrollHeight);
+				oSdListCont.style.top=-scale*(oSdListCont.scrollHeight-oSdListIntro.offsetHeight)+'px';
+			}
+			oScrBar.onmousedown=function(ev){
+				var oEvent =ev||event;
+				var disY= oEvent.clientX-oScrBar.offsetTop;
+				document.onmousemove=function(ev){
+					var oEvent=ev||event;
+					var t=oEvent.clientY-disY;
+					setPos(t);
+				};
+				document.onmouseup=function(){
+					document.onmouseup=null;
+					document.onmousemove=null;
+					oScrBar.releaseCapture&&oScrBar.releaseCapture();
+				};
+				oScrBar.setCapture&&oScrBar.setCapture();
+				return false;
+			};
+			addWheel(oSdList,function(down){
+				var t=oScrBar.offsetTop;
+				if(down){
+					t+=10;
+				}else{
+					t-=10;
+				}
+				setPos(t);
+			});
+
+			var oBig=document.getElementById('big');
+			var oSmall=document.getElementById('small');
+			var aSmaLi=oSmall.getElementsByTagName('li');
+			var arr=[1,2,3,4,5,6,7,8,9,10]
+			for(var i=0;i<aSmaLi.length;i++){
+				(function(index){
+					aSmaLi[i].onmouseover=function(){
+						oBig.src='img/'+arr[index]+'.jpg';
+					};
+				})(i);	
+			}
+		};
+	</script>
+</head>
+<body>
+	<div class="main">
+		<div class="header clearfix">
+			<h1 class="logo">傲视影音</h1>
+			<ul class="nav clearfix">
+				<li><a href="index.html">视频库</a></li>
+				<li><a href="javascript:;">播放器</a></li>
+				<li><a href="javascript:;">直播</a></li>
+			</ul>
+			<div class="view clearfix">
+				<a href="javascript:;" class="view_spe"><img src="images/1.png"></a>
+				<a href="javascript:;"><img src="images/2.png"></a>
+				<a href="javascript:;"><img src="images/3.png"></a>
+			</div>
+		</div>
+		<div class="concent clearfix">
+			<div class="siderbar">
+				<div class="sd_search">
+					<div class="sd_sear_t">
+						<input type="text">
+						<a href="javascript:;"></a>
+					</div>
+					<ul class="sd_sear_nav clearfix">
+						<li><a href="javascript:;" class="sd_sear_nav_a1">傲视影音</a></li>
+						<li><a href="javascript:;">我的播放</a></li>
+						<li><a href="javascript:;">直播</a></li>
+						<li><a href="javascript:;">游戏</a></li>
+						<li class="sd_sear_nav_spe"><a href="javascript:;">用户</a></li>
+					</ul>
+					<div class="sd_sear_user clearfix">
+						<img src="images/face.png" alt="">
+						<div class="user_introduce">
+							<p class="user_name">strive_chen</p>
+							<ul class="vip clearfix">
+								<li class="vip_li1"></li>
+								<li class="vip_li2">(0)</li>
+								<li class="vip_li3">(1)</li>
+								<li class="vip_li4">(2)</li>
+							</ul>
+							<p class="my">我的硬币:<span>1000</span>&nbsp;&nbsp;<a href="javascript:;">我要兑换</a></p>
+						</div>
+					</div>
+				</div>
+				<div class="sd_list clearfix" id="sd_list">
+					<div class="sd_list_cont" id="sd_list_cont">
+						<div class="sd_list_introduce" id="sd_list_introduce">
+							<div class="sd_list_intro_game">今日有新游戏<a href="javascript:;"></a>
+							</div>
+							<ul class="sd_list_intro_live">
+								<li>
+									<a href="javascript:;">
+										<b>
+											<img src="images/01.png" alt="">
+										</b>四川卫视
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;">
+										<b>
+											<img src="images/02.png" alt="">
+										</b>深圳卫视
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;">
+										<b>
+											<img src="images/03.png" alt="">
+										</b>陕西卫视
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;">
+										<b>
+											<img src="images/04.png" alt="">
+										</b>无锡生活
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;">
+										<b>
+											<img src="images/05.png" alt="">
+										</b>南京综合
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;">
+										<b>
+											<img src="images/01.png" alt="">
+										</b>四川卫视
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;">
+										<b>
+											<img src="images/02.png" alt="">
+										</b>深圳卫视
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;">
+										<b>
+											<img src="images/03.png" alt="">
+										</b>陕西卫视
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;">
+										<b>
+											<img src="images/04.png" alt="">
+										</b>无锡生活
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;">
+										<b>
+											<img src="images/05.png" alt="">
+										</b>南京综合
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;">
+										<b>
+											<img src="images/01.png" alt="">
+										</b>四川卫视
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;">
+										<b>
+											<img src="images/02.png" alt="">
+										</b>深圳卫视
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;">
+										<b>
+											<img src="images/03.png" alt="">
+										</b>陕西卫视
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;">
+										<b>
+											<img src="images/04.png" alt="">
+										</b>无锡生活
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;">
+										<b>
+											<img src="images/05.png" alt="">
+										</b>南京综合
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;">
+										<b>
+											<img src="images/01.png" alt="">
+										</b>四川卫视
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;">
+										<b>
+											<img src="images/02.png" alt="">
+										</b>深圳卫视
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;">
+										<b>
+											<img src="images/03.png" alt="">
+										</b>陕西卫视
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;">
+										<b>
+											<img src="images/04.png" alt="">
+										</b>无锡生活
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;">
+										<b>
+											<img src="images/05.png" alt="">
+										</b>南京综合
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					
+					<div class="scroll">
+						<div class="scr_up"></div>
+						<div class="scr_bg" id="scr_bg">
+							<div class="scr_bar" id="scr_bar"></div>
+						</div>
+						<div class="scr_down"></div>
+					</div>
+				</div>
+			</div>
+			<div class="con_main clearfix">
+				<div class="con_main_contain">
+					<div class="con_main_nav clearfix">
+						<ul class="con_main_nav_l clearfix">
+							<li><a href="javascript:;" class="con_main_nav_l_a1"></a></li>
+							<li><a href="javascript:;" class="con_main_nav_l_a2"></a></li>
+							<li><a href="javascript:;" class="con_main_nav_l_a3"><b></b>首页</a></li>
+							<li><a href="javascript:;">电影</a></li>
+							<li><a href="javascript:;">电视剧</a></li>
+							<li><a href="javascript:;">动漫</a></li>
+							<li><a href="javascript:;">综艺</a></li>
+							<li><a href="javascript:;">音乐</a></li>
+							<li><a href="javascript:;">卫视直播</a></li>
+							<li><a href="javascript:;">影院大片</a></li>
+						</ul>
+						<div class="con_main_nav_r">
+							<input type="text">
+						</div>
+					</div>
+					<!--焦点-->
+					<div class="con_main_banner">
+						<div class="con_main_banner_big">
+							<img src="img/1.jpg" alt="" id="big">
+							<div class="big_bg"></div>
+							<div class="big_con">X女特工(41集大结局)</div>
+						</div>
+						<div class="con_main_banner_small">
+							<ul class="con_main_banner_small_img clearfix" id="small">
+								<li><a href="javascript:;"><img src="img/small_01.jpg" alt=""></a></li>
+								<li><a href="javascript:;"><img src="img/small_02.jpg" alt=""></a></li>
+								<li><a href="javascript:;"><img src="img/small_03.jpg" alt=""></a></li>
+								<li><a href="javascript:;"><img src="img/small_01.jpg" alt=""></a></li>
+								<li><a href="javascript:;"><img src="img/small_02.jpg" alt=""></a></li>
+								<li><a href="javascript:;"><img src="img/small_03.jpg" alt=""></a></li>
+								<li><a href="javascript:;"><img src="img/small_01.jpg" alt=""></a></li>
+								<li><a href="javascript:;"><img src="img/small_02.jpg" alt=""></a></li>
+								<li><a href="javascript:;"><img src="img/small_03.jpg" alt=""></a></li>
+								<li><a href="javascript:;"><img src="img/small_01.jpg" alt=""></a></li>
+							</ul>
+							<div class="con_main_banner_small_pointer" id="small_pointer"></div>
+						</div>	
+					</div>
+					<!--今日热点-->
+					<div class="movie hot">
+						<div class="tittle clearfix">
+							<h2 class="tittle_l">今日热点</h2>
+						</div>
+						<ul class="mov_con clearfix">
+							<li>
+								<a href="javascript:;"><img src="img/av_eg.jpg" alt="">
+									<span></span>
+								</a>
+								<p class="mov_con_p1">扬州发现隋炀帝真正陵寝</p>
+							</li>
+							<li>
+								<a href="javascript:;"><img src="img/av_eg.jpg" alt="">
+									<span></span>
+								</a>
+								<p class="mov_con_p1">扬州发现隋炀帝真正陵寝</p>
+							</li>
+							<li>
+								<a href="javascript:;"><img src="img/av_eg.jpg" alt="">
+									<span></span>
+								</a>
+								<p class="mov_con_p1">扬州发现隋炀帝真正陵寝</p>
+							</li>
+							<li>
+								<a href="javascript:;"><img src="img/av_eg.jpg" alt="">
+									<span></span>
+								</a>
+								<p class="mov_con_p1">扬州发现隋炀帝真正陵寝</p>
+							</li>
+							<li class="mov_con_li_spe">
+								<a href="javascript:;"><img src="img/av_eg.jpg" alt="">
+									<span></span>
+								</a>
+								<p class="mov_con_p1">扬州发现隋炀帝真正陵寝</p>
+							</li>
+						</ul>
+						<div class="mov_bot"></div>
+					</div>
+					<!--电影-->
+					<div class="movie">
+						<div class="tittle clearfix">
+							<h2 class="tittle_l">电影</h2>
+							<ul class="tittle_r">
+								<li><a href="javascript:;">华语</a> |</li>
+								<li><a href="javascript:;">好莱坞</a> |</li>
+								<li><a href="javascript:;">欧洲</a> |</li>
+								<li><a href="javascript:;">日本</a> |</li>
+								<li><a href="javascript:;">韩国</a> |</li>
+								<li><a href="javascript:;">更多>></a></li>
+							</ul>
+						</div>
+						<ul class="mov_con clearfix">
+							<li>
+								<a href="javascript:;"><img src="img/av_eg2.jpg" alt="">
+									<b></b>
+									<span></span>
+								</a>
+								<p class="mov_con_p1">特殊交易</p>
+								<p class="mov_con_p2">青涩少年情挑陪酒女郎</p>
+							</li>
+							<li>
+								<a href="javascript:;"><img src="img/av_eg2.jpg" alt="">
+									<b></b>
+									<span></span>
+								</a>
+								<p class="mov_con_p1">特殊交易</p>
+								<p class="mov_con_p2">青涩少年情挑陪酒女郎</p>
+							</li>
+							<li>
+								<a href="javascript:;"><img src="img/av_eg2.jpg" alt="">
+									<span></span>
+								</a>
+								<p class="mov_con_p1">特殊交易</p>
+								<p class="mov_con_p2">青涩少年情挑陪酒女郎</p>
+							</li>
+							<li>
+								<a href="javascript:;"><img src="img/av_eg2.jpg" alt="">
+									<span></span>
+								</a>
+								<p class="mov_con_p1">特殊交易</p>
+								<p class="mov_con_p2">青涩少年情挑陪酒女郎</p>
+							</li>
+							<li class="mov_con_li_spe">
+								<a href="javascript:;"><img src="img/av_eg2.jpg" alt="">
+									<b></b>
+									<span></span>
+								</a>
+								<p class="mov_con_p1">特殊交易</p>
+								<p class="mov_con_p2">青涩少年情挑陪酒女郎</p>
+							</li>
+						</ul>
+						<div class="mov_bot"></div>
+					</div>
+					<!--电视剧-->
+					<div class="movie tv">
+						<div class="tittle clearfix">
+							<h2 class="tittle_l">电视剧</h2>
+							<ul class="tittle_r">
+								<li><a href="javascript:;">内地</a> |</li>
+								<li><a href="javascript:;">美剧</a> |</li>
+								<li><a href="javascript:;">港剧</a> |</li>
+								<li><a href="javascript:;">台剧</a> |</li>
+								<li><a href="javascript:;">韩剧</a> |</li>
+								<li><a href="javascript:;">英剧</a> |</li>
+								<li><a href="javascript:;">泰剧</a> |</li>
+								<li><a href="javascript:;">更多>></a></li>
+							</ul>
+						</div>
+						<ul class="mov_con clearfix">
+							<li class="mov_con_li1">
+								<a href="javascript:;"><img src="img/av_eg3.jpg" alt="">
+									<b></b>
+									<span></span>
+									<i>13集全</i>
+								</a>
+								<p class="mov_con_p1">特殊交易</p>
+								<p class="mov_con_p2">青涩少年情挑陪酒女郎</p>
+							</li>
+							<li class="mov_con_li1">
+								<a href="javascript:;"><img src="img/av_eg3.jpg" alt="">
+									<b></b>
+									<span></span>
+									<i>13集全</i>
+								</a>
+								<p class="mov_con_p1">特殊交易</p>
+								<p class="mov_con_p2">青涩少年情挑陪酒女郎</p>
+							</li>
+							<li class="mov_con_li1">
+								<a href="javascript:;"><img src="img/av_eg3.jpg" alt="">
+									<span></span>
+									<i>13集全</i>
+								</a>
+								<p class="mov_con_p1">特殊交易</p>
+								<p class="mov_con_p2">青涩少年情挑陪酒女郎</p>
+							</li>
+							<li class="mov_con_li_spe mov_con_li1">
+								<a href="javascript:;"><img src="img/av_eg3.jpg" alt="">
+									<span></span>
+									<i>13集全</i>
+								</a>
+								<p class="mov_con_p1">特殊交易</p>
+								<p class="mov_con_p2">青涩少年情挑陪酒女郎</p>
+							</li>
+							<li>
+								<a href="javascript:;"><img src="img/av_eg3.jpg" alt="">
+									<b></b>
+									<span></span>
+									<i>13集全</i>
+								</a>
+								<p class="mov_con_p1">特殊交易</p>
+								<p class="mov_con_p2">青涩少年情挑陪酒女郎</p>
+							</li>
+							<li>
+								<a href="javascript:;"><img src="img/av_eg3.jpg" alt="">
+									<b></b>
+									<span></span>
+									<i>13集全</i>
+								</a>
+								<p class="mov_con_p1">特殊交易</p>
+								<p class="mov_con_p2">青涩少年情挑陪酒女郎</p>
+							</li>
+							<li>
+								<a href="javascript:;"><img src="img/av_eg3.jpg" alt="">
+									<span></span>
+									<i>13集全</i>
+								</a>
+								<p class="mov_con_p1">特殊交易</p>
+								<p class="mov_con_p2">青涩少年情挑陪酒女郎</p>
+							</li>
+							<li class="mov_con_li_spe">
+								<a href="javascript:;"><img src="img/av_eg3.jpg" alt="">
+									<span></span>
+									<i>13集全</i>
+								</a>
+								<p class="mov_con_p1">特殊交易</p>
+								<p class="mov_con_p2">青涩少年情挑陪酒女郎</p>
+							</li>
+						</ul>
+					</div>
+					<!--广告2-->
+					<a href="javascript:;" class="ad2"><img src="img/ad2.png" alt=""></a>
+					<!--综艺-->
+					<div class="movie tv variety">
+						<div class="tittle clearfix">
+							<h2 class="tittle_l">综艺</h2>
+							<ul class="tittle_r">
+								<li><a href="javascript:;">内地</a> |</li>
+								<li><a href="javascript:;">港台</a> |</li>
+								<li><a href="javascript:;">港剧</a> |</li>
+								<li><a href="javascript:;">欧美</a> |</li>
+								<li><a href="javascript:;">更多>></a></li>
+							</ul>
+						</div>
+						<ul class="mov_con clearfix">
+							<li>
+								<a href="javascript:;"><img src="img/av_eg4.jpg" alt="">
+									<b></b>
+									<span></span>
+									<i>13集全</i>
+								</a>
+								<p class="mov_con_p1">总决赛羽泉爆冷夺冠</p>
+								<p class="mov_con_p2">栏目：我是歌手</p>
+							</li>
+							<li>
+								<a href="javascript:;"><img src="img/av_eg4.jpg" alt="">
+									<b></b>
+									<span></span>
+									<i>13集全</i>
+								</a>
+								<p class="mov_con_p1">总决赛羽泉爆冷夺冠</p>
+								<p class="mov_con_p2">栏目：我是歌手</p>
+							</li>
+							<li>
+								<a href="javascript:;"><img src="img/av_eg4.jpg" alt="">
+									<span></span>
+									<i>13集全</i>
+								</a>
+								<p class="mov_con_p1">总决赛羽泉爆冷夺冠</p>
+								<p class="mov_con_p2">栏目：我是歌手</p>
+							</li>
+							<li class="mov_con_li_spe">
+								<a href="javascript:;"><img src="img/av_eg4.jpg" alt="">
+									<span></span>
+									<i>13集全</i>
+								</a>
+								<p class="mov_con_p1">总决赛羽泉爆冷夺冠</p>
+								<p class="mov_con_p2">栏目：我是歌手</p>
+							</li>
+						</ul>
+						<div class="mov_bot"></div>
+					</div>
+					<!--动漫-->
+					<div class="movie tv variety comic">
+						<div class="tittle clearfix">
+							<h2 class="tittle_l">动漫</h2>
+							<ul class="tittle_r">
+								<li><a href="javascript:;">搞笑</a> |</li>
+								<li><a href="javascript:;">剧情</a> |</li>
+								<li><a href="javascript:;">冒险</a> |</li>
+								<li><a href="javascript:;">魔幻</a> |</li>
+								<li><a href="javascript:;">励志</a> |</li>
+								<li><a href="javascript:;">真人</a> |</li>
+								<li><a href="javascript:;">更多>></a></li>
+							</ul>
+						</div>
+						<ul class="mov_con clearfix">
+							<li>
+								<a href="javascript:;"><img src="img/av_eg5.jpg" alt="">
+									<b></b>
+									<span></span>
+									<i>86分10秒</i>
+								</a>
+								<p class="mov_con_p1">十万个冷笑话</p>
+							</li>
+							<li>
+								<a href="javascript:;"><img src="img/av_eg5.jpg" alt="">
+									<b></b>
+									<span></span>
+									<i>86分10秒</i>
+								</a>
+								<p class="mov_con_p1">十万个冷笑话</p>
+							</li>
+							<li>
+								<a href="javascript:;"><img src="img/av_eg5.jpg" alt="">
+									<span></span>
+									<i>86分10秒</i>
+								</a>
+								<p class="mov_con_p1">十万个冷笑话</p>
+							</li>
+							<li class="mov_con_li_spe">
+								<a href="javascript:;"><img src="img/av_eg5.jpg" alt="">
+									<span></span>
+									<i>86分10秒</i>
+								</a>
+								<p class="mov_con_p1">十万个冷笑话</p>
+							</li>
+						</ul>
+						<div class="mov_bot"></div>
+					</div>
+					<!--微栏目-->
+					<div class="movie tv variety comic">
+						<div class="tittle clearfix">
+							<h2 class="tittle_l">原创·微栏目</h2>
+							<ul class="tittle_r">
+								<li><a href="javascript:;">更多>></a></li>
+							</ul>
+						</div>
+						<ul class="mov_con clearfix">
+							<li>
+								<a href="javascript:;"><img src="img/av_eg6.jpg" alt="">
+									<b></b>
+									<span></span>
+									<i>大鹏嘚啵嘚</i>
+								</a>
+								<p class="mov_con_p1">十万个冷笑话</p>
+							</li>
+							<li>
+								<a href="javascript:;"><img src="img/av_eg6.jpg" alt="">
+									<b></b>
+									<span></span>
+									<i>大鹏嘚啵嘚</i>
+								</a>
+								<p class="mov_con_p1">十万个冷笑话</p>
+							</li>
+							<li>
+								<a href="javascript:;"><img src="img/av_eg6.jpg" alt="">
+									<span></span>
+									<i>大鹏嘚啵嘚</i>
+								</a>
+								<p class="mov_con_p1">十万个冷笑话</p>
+							</li>
+							<li class="mov_con_li_spe">
+								<a href="javascript:;"><img src="img/av_eg6.jpg" alt="">
+									<span></span>
+									<i>大鹏嘚啵嘚</i>
+								</a>
+								<p class="mov_con_p1">十万个冷笑话</p>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="scroll scroll2">
+					<div class="scr_up"></div>
+					<div class="scr_bg">
+						<div class="scr_bar"></div>
+					</div>
+					<div class="scr_down"></div>
+				</div>
+			</div>
+		</div>
+		<div class="footer">傲视影音 v1.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;检查更新</div>
+	</div>
+</body>
+</html>
